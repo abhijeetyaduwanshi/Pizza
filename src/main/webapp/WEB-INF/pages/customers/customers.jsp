@@ -4,14 +4,15 @@
     Author     : ayaduwanshi
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="/WEB-INF/header.jspf" %>
+
+<h1>I am customers.jsp</h1>
+
+<ul>
+    <c:forEach items="${requestScope.customers}" var="customer">
+        <li>First name: <c:out value="${customer.firstName}"/> Last name: ${customer.lastName}</li>
+    </c:forEach>
+</ul>
+
+<%@include file="/WEB-INF/footer.jspf" %>

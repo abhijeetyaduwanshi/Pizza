@@ -5,7 +5,9 @@
  */
 package com.mycompany.web;
 
+import com.mycompany.model.Customer;
 import com.mycompany.service.CrmService;
+import com.mycompany.service.CrmServiceImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -26,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 })
 public class CustomerController extends HttpServlet {
 
-    private CrmService svc;
+    private CrmService svc = new CrmServiceImpl();
     private static final Logger LOG = Logger.getLogger(CustomerController.class.getName());
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,9 +46,28 @@ public class CustomerController extends HttpServlet {
 
         LOG.info("inside doGet method");
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<h1>I am the doGet method</h1>");
+//        try(PrintWriter out = response.getWriter()) {
+//            out.println("<h1>I am the doGet method</h1>");
+//            out.println("<ul>");
+//
+//            for(Customer c : svc.findCustomers()) {
+//                out.println("<li>" + c.toString() + "</li>");
+//            }
+//
+//            out.println("</ul>");
+//        }
+        switch(request.getServletPath()) {
+            case "/customers":
+                LOG.info("Dispatcher to /customers");
+                request.setAttribute("customers", svc.findCustomers());
+                request.getRequestDispatcher("/WEB-INF/pages/customers/customers.jsp").forward(request, response);
+                break;
+            case "/customer":
+                LOG.info("Dispatcher to /customer");
+                request.getRequestDispatcher("/WEB-INF/pages/customers/customer.jsp").forward(request, response);
+                break;
         }
+
     }
 
     /**

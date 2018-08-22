@@ -13,7 +13,7 @@ import java.util.Collection;
  *
  * @author ayaduwanshi
  */
-public class JdbcCustomerRepository implements CustomerRepository {
+public class JdbcCustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Collection<Customer> findAll() {
