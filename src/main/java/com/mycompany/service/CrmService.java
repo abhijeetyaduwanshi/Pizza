@@ -6,6 +6,7 @@
 package com.mycompany.service;
 
 import com.mycompany.model.Customer;
+
 import java.util.Collection;
 
 /**

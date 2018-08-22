@@ -12,15 +12,15 @@ import java.util.Random;
  * @author ayaduwanshi
  */
 public class RandomName {
-    
+
     private static final Random GENERATOR = new Random();
-    
+
     private static final String[] FIRST_NAMES = new String[] {
         "Emily", "Jacob", "Michael", "Emma", "Joshua", "Madison", "Mattew",
         "Hannah", "Andrew", "Olivia", "Cletus", "Warner", "Sarah", "Billy",
         "Brittany", "Daniel", "David", "Cristman", "Colin", "Royalle"
     };
-    
+
     private static final String[] LAST_NAMES = new String[] {
         "Aaron", "Bolingbrokr", "Corunse", "Duff", "Drake", "Downs", "Driver",
         "Jasper", "Jetter", "O'Leary", "O'Malley", "Meville", "Towers", "Tripp",

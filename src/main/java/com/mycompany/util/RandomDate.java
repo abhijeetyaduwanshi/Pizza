@@ -13,12 +13,12 @@ import java.util.Random;
  * @author ayaduwanshi
  */
 public class RandomDate {
-    
+
     private static final Random GENERATOR = new Random();
-    
+
     private static final long BEGIN_TIME = 1L * 365L * 24L * 60L * 60L * 1000L;
     private static final long END_TIME = 1L * 365L * 24L * 60L * 60L * 1000L;
-    
+
     public static Date generate() {
         return new Date(System.currentTimeMillis() - getRandomTimeBetweenTwoDates());
     }
@@ -27,4 +27,4 @@ public class RandomDate {
         long diff = END_TIME - BEGIN_TIME + 1;
         return BEGIN_TIME + (long)(Math.random() * diff);
     }
-} 
+}

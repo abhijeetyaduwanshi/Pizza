@@ -7,6 +7,7 @@ package com.mycompany.repository.jpa;
 
 import com.mycompany.model.Customer;
 import com.mycompany.repository.CustomerRepository;
+
 import java.util.Collection;
 
 /**
@@ -29,5 +30,4 @@ public class JpaCustomerRepositoryImpl implements CustomerRepository {
     public void save(Customer customer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

@@ -8,6 +8,7 @@ package com.mycompany.repository.simple;
 import com.mycompany.model.Customer;
 import com.mycompany.repository.CustomerRepository;
 import com.mycompany.util.RandomName;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -26,30 +27,31 @@ public class SimpleCustomerRepositoryImpl implements CustomerRepository {
 
     public SimpleCustomerRepositoryImpl() {
     }
-    
+
     private Map<Long, Customer> createCustomerMap() {
         SortedMap<Long, Customer> ret = new TreeMap();
-        
+
         for(int i = 1; i <= 50; i++) {
             Customer customer = new Customer();
             customer.setCustomerId(new Long(i));
             customer.setFirstName(RandomName.generateFirstName());
             customer.setLastName(RandomName.generateLastName());
+
             // do the same for rest of the fields
-//            customer.setFirstName("Abhijeet");
-//            customer.setLastName("Yaduwanshi");
-//            customer.setEmail("abhi@gmail.com");
-//            customer.setAddress1("123 S State Street");
-//            customer.setAddress2("Apt 1234");
-//            customer.setCity("Chicago");
-//            customer.setState("IL");
-//            customer.setZip(48108);
-//            customer.setPhone("9876543210");
+            // customer.setFirstName("Abhijeet");
+            // customer.setLastName("Yaduwanshi");
+            // customer.setEmail("abhi@gmail.com");
+            // customer.setAddress1("123 S State Street");
+            // customer.setAddress2("Apt 1234");
+            // customer.setCity("Chicago");
+            // customer.setState("IL");
+            // customer.setZip(48108);
+            // customer.setPhone("9876543210");
             ret.put(customer.getCustomerId(), customer);
         }
         return ret;
     }
-    
+
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
@@ -66,5 +68,4 @@ public class SimpleCustomerRepositoryImpl implements CustomerRepository {
             customers.put(customer.getCustomerId(), customer);
         }
     }
-    
 }

@@ -9,5 +9,4 @@
 
 <h1>I am using JSP segments</h1>
 
-
 <%@include file="/WEB-INF/footer.jspf" %>

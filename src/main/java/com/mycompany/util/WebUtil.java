@@ -10,7 +10,7 @@ package com.mycompany.util;
  * @author ayaduwanshi
  */
 public class WebUtil {
-    
+
     public static boolean isEmpty(String param) {
         if((param == null) || (param.trim().equals(""))) {
             return true;
@@ -18,7 +18,7 @@ public class WebUtil {
             return false;
         }
     }
-    
+
     public static String trimParam(String param) {
         if(isEmpty(param)) {
             return null;

@@ -7,6 +7,7 @@ package com.mycompany.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,7 @@ public class NewServlet extends HttpServlet {
         // super.doGet(req, resp);
         try(PrintWriter out = response.getWriter()) {
             out.println("I am some plain text for an example");
-            
+
             // this is a way to get the required header
             out.println("<p>Request Header - " + request.getHeader("User-Agent") + "</p>");
             out.println("<p>Request Header - " + request.getHeader("Accept") + "</p>");
@@ -47,15 +48,12 @@ public class NewServlet extends HttpServlet {
             out.println("<p>Param 1: " + req.getParameter("param1") + "</p>");
             out.println("<p>Param 2: " + req.getParameter("param2") + "</p>");
             out.println("<p>Param 3: " + req.getParameter("param3") + "</p>");
-            
+
             // if there is any case where the param is not passed then in that case the field is null
             out.println("<p>Param 4: " + req.getParameter("param4") + "</p>");
-            
+
             // these are the session methods
             out.println(req.getSession());
-            
         }
     }
-    
-    
 }

@@ -6,6 +6,7 @@
 package com.mycompany.repository;
 
 import com.mycompany.model.Customer;
+
 import java.util.Collection;
 
 /**

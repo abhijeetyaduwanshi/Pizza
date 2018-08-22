@@ -8,10 +8,13 @@ package com.mycompany.web;
 import com.mycompany.model.Customer;
 import com.mycompany.service.CrmService;
 import com.mycompany.service.CrmServiceImpl;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,28 +49,29 @@ public class CustomerController extends HttpServlet {
 
         LOG.info("inside doGet method");
 
-//        try(PrintWriter out = response.getWriter()) {
-//            out.println("<h1>I am the doGet method</h1>");
-//            out.println("<ul>");
-//
-//            for(Customer c : svc.findCustomers()) {
-//                out.println("<li>" + c.toString() + "</li>");
-//            }
-//
-//            out.println("</ul>");
-//        }
+        // try(PrintWriter out = response.getWriter()) {
+        //     out.println("<h1>I am the doGet method</h1>");
+        //     out.println("<ul>");
+        //
+        //    for(Customer c : svc.findCustomers()) {
+        //        out.println("<li>" + c.toString() + "</li>");
+        //    }
+        //
+        //    out.println("</ul>");
+        //}
+
         switch(request.getServletPath()) {
-            case "/customers":
+            case "/customers" :
                 LOG.info("Dispatcher to /customers");
                 request.setAttribute("customers", svc.findCustomers());
                 request.getRequestDispatcher("/WEB-INF/pages/customers/customers.jsp").forward(request, response);
                 break;
-            case "/customer":
+
+            case "/customer" :
                 LOG.info("Dispatcher to /customer");
                 request.getRequestDispatcher("/WEB-INF/pages/customers/customer.jsp").forward(request, response);
                 break;
         }
-
     }
 
     /**
@@ -83,11 +87,11 @@ public class CustomerController extends HttpServlet {
             throws ServletException, IOException {
 
         // in this we are checking to be on a safer side and to be more effecient
-        if (LOG.isLoggable(Level.FINEST)) {
+        if(LOG.isLoggable(Level.FINEST)) {
             LOG.finest("inside doPost method");
         }
 
-        try (PrintWriter out = response.getWriter()) {
+        try(PrintWriter out = response.getWriter()) {
             out.println("<h1>I am the doPost method</h1>");
         }
     }
@@ -101,5 +105,4 @@ public class CustomerController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
