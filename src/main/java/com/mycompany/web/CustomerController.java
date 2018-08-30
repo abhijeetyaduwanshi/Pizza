@@ -8,10 +8,12 @@ package com.mycompany.web;
 import com.mycompany.model.Customer;
 import com.mycompany.service.CrmService;
 import com.mycompany.service.CrmServiceImpl;
+import com.mycompany.util.WebUtil;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,6 +62,10 @@ public class CustomerController extends HttpServlet {
         //    out.println("</ul>");
         //}
 
+        Map<String, String> messages = new HashMap<>();
+        request.setAttribute("messages", messages);
+        
+
         switch(request.getServletPath()) {
             case "/customers" :
                 LOG.info("Dispatcher to /customers");
@@ -69,6 +75,15 @@ public class CustomerController extends HttpServlet {
 
             case "/customer" :
                 LOG.info("Dispatcher to /customer");
+                
+                if(WebUtil.isEmpty(request.getParameter("id"))) {
+                    LOG.warning("ID was not passed as a parameter.");
+                    messages.put("No ID Error", "This is a message from your controller. Please enter an ID.");
+                    throw new ServletException("No ID was passed. Try again!");
+                }
+                
+                Long id = Long.parseLong(request.getParameter("id"));
+                request.setAttribute("customer", svc.findCustomer(id));
                 request.getRequestDispatcher("/WEB-INF/pages/customers/customer.jsp").forward(request, response);
                 break;
         }

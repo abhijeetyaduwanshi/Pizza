@@ -23,4 +23,9 @@ public class CrmServiceImpl implements CrmService {
     public Collection<Customer> findCustomers() {
         return customerRepository.findAll();
     }
+
+    @Override
+    public Customer findCustomer(Long id) {
+        return customerRepository.findById(id);
+    }
 }

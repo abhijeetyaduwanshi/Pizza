@@ -15,4 +15,5 @@ import java.util.Collection;
  */
 public interface CrmService {
     Collection<Customer> findCustomers();
+    Customer findCustomer(Long id);
 }
