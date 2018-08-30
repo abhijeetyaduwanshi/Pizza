@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isErrorPage="true" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/header.jspf" %>
 
 <h1>There has been an issue.</h1>
@@ -8,11 +9,11 @@
 <c:if test="${not empty requestScope.messages}">
     <h2>Messages passed back from the controller layer in request scope: </h2>
     <ul>
-        <c:if items="${requestScope.messages}" var="message" >
+        <c:forEach items="${requestScope.messages}" var="message" >
             <li>
                 <strong><c:out value="${message.key}" />: ${message.value}</strong>
             </li>
-        </c:if>
+        </c:forEach>
     </ul>
 </c:if>
 
